@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![page view]()
+![page view](https://github.com/kasiami0/task-list-react/blob/main/public/share.png?raw=true)
 
 ## Demo
 
