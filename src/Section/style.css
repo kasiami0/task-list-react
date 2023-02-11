@@ -4,12 +4,12 @@
     margin-bottom: 5px;
 }
 
-.section__header {
+.section__headerName {
     padding: 0px 15px 15px;
     margin-bottom: 0px;
 }
 
-.section__headerContainer {
+.section__header {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -18,7 +18,7 @@
 }
 
 @media (max-width: 768px) {
-    .section__headerContainer {
+    .section__header {
         display: grid;
         grid-template-columns: 1fr;
     }
