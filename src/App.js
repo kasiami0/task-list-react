@@ -13,6 +13,15 @@ function App() {
     { id: 2, content: "drugie", done: true },
   ]);
 
+  const toggleTaskDone = (id) => {
+    setTasks(tasks => tasks.map(task => {
+      if (task.id === id) {
+        return { ...task, done: !task.done };
+      }
+      return task;
+    }));
+  };
+
   const removeTask = (id) => {
     setTasks(tasks => tasks.filter(task => task.id !== id));
   };
@@ -30,7 +39,12 @@ function App() {
       />
       <Section
         header="Lista zadań"
-        body={<List tasks={tasks} hideDone={hideDone} removeTask={removeTask} />}
+        body={<List
+          tasks={tasks}
+          hideDone={hideDone}
+          removeTask={removeTask}
+          toggleTaskDone={toggleTaskDone}
+        />}
         extraHeaderContent={
           <Buttons tasks={tasks} hideDone={hideDone} toggleHideDone={toggleHideDone} />
         }
