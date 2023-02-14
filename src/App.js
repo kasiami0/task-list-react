@@ -8,10 +8,19 @@ import { useState } from "react";
 
 function App() {
   const [hideDone, setHideDone] = useState(false);
-  const [tasks, setTasks] = useState([
-    { id: 1, content: "pierwsze", done: false },
-    { id: 2, content: "drugie", done: true },
-  ]);
+  const [tasks, setTasks] = useState([]);
+
+  const addNewTask = (content) => {
+    content.length > 0 && (
+      setTasks(tasks => [
+        ...tasks,
+        {
+          content,
+          done: false,
+          id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+        }
+      ]));
+  };
 
   const toggleTaskDone = (id) => {
     setTasks(tasks => tasks.map(task => {
@@ -41,7 +50,7 @@ function App() {
       <Header header="Lista zadań" />
       <Section
         header="Dodaj nowe zadanie"
-        body={<Form />}
+        body={<Form addNewTask={addNewTask} />}
       />
       <Section
         header="Lista zadań"
